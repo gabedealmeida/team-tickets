@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_08_20_194528) do
+ActiveRecord::Schema.define(version: 2020_08_20_194859) do
 
   create_table "comments", force: :cascade do |t|
     t.text "body"
@@ -33,6 +33,15 @@ ActiveRecord::Schema.define(version: 2020_08_20_194528) do
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "ticket_tags", force: :cascade do |t|
+    t.integer "ticket_id", null: false
+    t.integer "tag_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["tag_id"], name: "index_ticket_tags_on_tag_id"
+    t.index ["ticket_id"], name: "index_ticket_tags_on_ticket_id"
   end
 
   create_table "tickets", force: :cascade do |t|
@@ -58,4 +67,6 @@ ActiveRecord::Schema.define(version: 2020_08_20_194528) do
 
   add_foreign_key "comments", "tickets"
   add_foreign_key "comments", "users"
+  add_foreign_key "ticket_tags", "tags"
+  add_foreign_key "ticket_tags", "tickets"
 end
