@@ -9,7 +9,7 @@ class Ticket < ApplicationRecord
   has_many :ticket_tags
   has_many :tags, through: :ticket_tags
 
-  validates: :name, presence: true, length: { minimum: 3 }
-  validates: :project_id, presence: true
-  validates: :user_id, presence: true
+  validates :name, presence: true, length: { minimum: 3 }
+  validates :project_id, presence: true
+  validates :user_id, presence: true
 end
