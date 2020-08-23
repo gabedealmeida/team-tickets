@@ -37,7 +37,7 @@ class TicketsController < ApplicationController
 
     if @ticket.save
       @ticket.add_tags(params[:tags]) if params[:tags]
-      flash[:notice] = "The ticket was created successfully."
+      flash[:notice] = "The ticket was created successfully ⛵️"
       redirect_to ticket_path(@ticket)
     else
       render :new
@@ -50,7 +50,7 @@ class TicketsController < ApplicationController
   def update
     if @ticket.update(ticket_params)
       @ticket.add_tags(params[:tags]) if params[:tags]
-      flash[:notice] = "This ticket was updated successfully."
+      flash[:notice] = "This ticket was updated successfully 👍"
       redirect_to ticket_path(@ticket)
     else
       render :edit
@@ -59,9 +59,9 @@ class TicketsController < ApplicationController
 
   def destroy
     if @ticket.destroy
-      flash[:notice] = "The ticket was deleted successfully."
+      flash[:notice] = "The ticket was deleted successfully 🗑"
     else
-      flash[:error] = "The ticket was not able to be deleted. Please try again."
+      flash[:error] = "The ticket was not able to be deleted. Please try again ⛔️"
     end
     redirect_to tickets_path
   end
