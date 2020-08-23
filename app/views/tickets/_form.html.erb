@@ -1,0 +1,42 @@
+<% from_project_page ||= false %>
+<% new_record_path = @ticket.new_record? ? tickets_path : ticket_path(@ticket) %>
+<% route_back = from_project_page ? :back : new_record_path %>
+
+<div class="col-md-6 mx-auto">
+  <%= render 'shared/errors', obj: @ticket %>
+  <%= form_with local: true, model: @ticket do |f| %>
+    <div class="form-group">
+      <%= f.label :project_id, 'Project' %>
+      <%= f.select(:project_id, Project.options_for_select, { prompt: 'Select Project' }, { required: 'true', autofocus: 'true', class: 'form-control' }) %>
+    </div>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, required: 'true', autofocus: 'true', class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :body %>
+      <%= f.text_area :body, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :status %>
+      <%= f.select :status, Ticket::STATUS, { prompt: 'Select Status' }, { required: 'true', class: 'form-control' } %>
+    </div>
+    <div class="form-group">
+      <%= f.label :assignee_id, 'Assignee' %>
+      <%= f.select(:assignee_id, User.options_for_select, { prompt: 'Assign to' }, { autofocus: 'true', required: 'true', class: 'form-control' }) %>
+    </div>
+    <div class="form-group">
+      <label for="tags" class="mr-3">Tags:</label>
+      <% Tag.sort_tags.each do |tag| %>
+        <div class="form-check form-check-inline">
+          <%= check_box_tag 'tags[]', tag.id, @ticket.tags.include?(tag), { class: 'form-check-input' } %>
+          <%= f.label tag.name, class: 'form-check-label' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: 'btn blue-btn' %>
+      <%= link_to "Cancel", route_back, class: "ml-2 btn red-btn" %>
+    </div>
+  <% end %>
+</div>

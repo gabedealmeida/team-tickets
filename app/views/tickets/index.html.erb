@@ -1,0 +1,32 @@
+<%= render 'shared/content_title', title: 'All Tickets' %>
+
+<a href="<%= new_ticket_path %>" class="btn btn-md blue-btn mb-2">New Ticket</a>
+
+<div class="d-flex justify-content-center mb-5">
+  <%= form_tag '/tickets', method: 'get', class: "form-inline" do %>
+    <div class="form-group">
+      <%= label_tag :project, 'Showing tickets for ', class: "mr-1" %>
+      <%= select_tag :project, options_for_select(Project.options_for_select, params[:project]), prompt: "any project", class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :status, 'with status', class: "ml-1 mr-1" %>
+      <%= select_tag :status, options_for_select(Ticket::STATUS, params[:status]), prompt: 'any status', class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= label_tag :tag, 'tagged', class: "ml-1 mr-1" %>
+      <%= select_tag :tag, options_for_select(Tag.options_for_select, params[:tag]), prompt: 'any tag', class: "form-control mr-2" %>
+    </div>
+    <div class="form-group">
+      <%= submit_tag 'Apply', class: "btn btn-sm blue-btn" %>
+      <%= link_to "Clear", tickets_path, { class: "ml-1 btn btn-sm red-btn" } %>
+    </div>
+  <% end %>
+</div>
+
+<% if @tickets.any? %>
+  <%= render 'ticket_list' %>
+<% elsif Project.all.size == 0 %>
+    <p>There are no projects, which means there can't be any tickets to display. <%= link_to 'Create a project', new_project_path %></p>
+<% else %>
+  <p>There are no tickets to display. <%= link_to 'Create one', new_ticket_path %></p>
+<% end %>

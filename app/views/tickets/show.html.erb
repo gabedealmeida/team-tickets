@@ -1,0 +1,41 @@
+<%= render 'shared/content_title', title: 'Ticket: ' + @ticket.name %>
+
+<div class="card bg-yellow-card mb-5 ml-5 mr-5">
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">
+      <h6 class="card-title">Body</h6>
+      <p class="card-text"><%= @ticket.body %></p>
+    </li>
+    <li class="list-group-item">
+      <h6 class="card-title">Creator</h6>
+      <p class="card-text"><%= @ticket.creator.username %></p>
+    </li>
+    <li class="list-group-item">
+      <h6 class="card-title">Assigned To</h6>
+      <p class="card-text"><%= @ticket.assignee.username %></p>
+    </li>
+    <li class="list-group-item">
+      <h6 class="card-title">Tags</h6>
+      <p class="card-text"><%= format_tags(@ticket.tags) %></p>
+    </li>
+    <li class="list-group-item">
+      <h6 class="card-title">Status</h6>
+      <p class="card-text"><%= format_status(@ticket.status) %></p>
+    </li>
+    <li class="list-group-item">
+      <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-sm btn-outline-primary" %>
+      <%= link_to 'Delete', ticket_path(@ticket), class: "btn btn-sm btn-outline-danger", method: 'delete', data: {confirm: "Are you sure?"}%>
+    </li>
+  </ul>
+  <div class="card-footer">
+    <small class="text-muted">Last updated <%= time_ago_in_words(@ticket.updated_at)%></small>
+  </div>
+</div>
+
+<h4 class="mb-4 ml-5 mr-5">Comments:</h4>
+
+<% if logged_in? %>
+  <%= render 'comments/form' %>
+<% end %>
+
+<%= render 'comments/comment_list' %>

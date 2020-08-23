@@ -1,0 +1,13 @@
+<div class="col-md-6 mx-auto">
+  <%= render 'shared/errors', obj: @tag %>
+  <%= form_with local: true, model: @tag do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, required: 'true', autofocus: 'true', class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: 'btn blue-btn' %>
+      <%= link_to "Cancel", tags_path, class: "ml-2 btn red-btn" %>
+    </div>
+  <% end %>
+</div>

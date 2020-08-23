@@ -1,0 +1,12 @@
+<div class="mb-3 ml-5 mr-5">
+  <% @ticket.sort_comments.each do |comment| %>
+    <div class="card bg-yellow-comment mb-3">
+      <p class="card-header">Posted by <%= comment.user.username%> <%= time_ago_in_words(comment.created_at) %> ago <%= link_to 'Edit', edit_ticket_comment_path(@ticket, comment) %><span> | </span><%= link_to 'Delete', ticket_comment_path(@ticket, comment), method: 'delete', data: {confirm: "Are you sure?"} %> <%= comment.created_at != comment.updated_at ? ' (✍️ edited)' : '' %> </p>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <p class="card-text"><%= comment.body %></p>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>

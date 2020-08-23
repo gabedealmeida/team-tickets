@@ -1,0 +1,30 @@
+<div class="card-columns">
+  <% @tickets.each do |ticket| %>
+    <div class="card bg-yellow-card mb-3">
+      <a href="<%= ticket_path(ticket) %>" class="stretched-link gray-text">
+        <h5 class="card-header"><%= ticket.name %></h5>
+      </a>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">
+          <h6 class="card-subtitle mb-1">Body</h6>
+          <p class="card-text"><%= format_card_text(ticket.body) %></p>
+        </li>
+        <li class="list-group-item">
+          <h6 class="card-subtitle mb-1">Assigned To</h6>
+          <p class="card-text"><%= ticket.assignee.username %></p>
+        </li>
+        <li class="list-group-item">
+          <h6 class="card-subtitle mb-1">Tags</h6>
+          <p class="card-text"><%= format_tags(ticket.tags) %></p>
+        </li>
+        <li class="list-group-item">
+          <h6 class="card-subtitle mb-1">Status</h6>
+          <p class="card-text"><%= format_status(ticket.status) %></p>
+        </li>
+      </ul>
+      <div class="card-footer">
+        <small class="text-muted">Last updated <%= time_ago_in_words(ticket.updated_at)%></small>
+      </div>
+    </div>
+  <% end %>
+</div>

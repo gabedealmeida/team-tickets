@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light mb-5" style="background-color: #e3f2fd;">
+  <%= link_to 'Team Tickets 📝', root_path, class: "navbar-brand" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <%= link_to 'Projects 🗂', projects_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Tickets 🎟', tickets_path, class: 'nav-link' %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Tags 🏷', tags_path, class: 'nav-link' %>
+      </li>
+    </ul>
+  <div class="text-right my-2 mr-4">
+    <% if logged_in? %>
+      Logged in as <%= current_user.username %> 🖖
+      <%= link_to 'Logout', logout_path, class: "btn btn-sm blue-btn ml-3" %>
+    <% else %>
+      Welcome! 🎉
+      <%= link_to 'Login', login_path %> or
+      <%= link_to 'Register', register_path %>
+    <% end %>
+  </div>
+  </div>
+</nav>

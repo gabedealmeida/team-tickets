@@ -1,0 +1,17 @@
+<div class="col-md-6 mx-auto">
+  <%= render 'shared/errors', obj: @project %>
+  <%= form_with local: true, model: @project do |f| %>
+    <div class="form-group">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :description %>
+      <%= f.text_area :description, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.submit class: "btn blue-btn" %>
+      <%= link_to "Cancel", (@project.new_record? ? projects_path : project_path(@project)), class: "ml-2 btn red-btn" %>
+    </div>
+  <% end %>
+</div>
