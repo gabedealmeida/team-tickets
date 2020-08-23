@@ -23,8 +23,8 @@
       <p class="card-text"><%= format_status(@ticket.status) %></p>
     </li>
     <li class="list-group-item">
-      <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-sm btn-outline-primary" %>
-      <%= link_to 'Delete', ticket_path(@ticket), class: "btn btn-sm btn-outline-danger", method: 'delete', data: {confirm: "Are you sure?"}%>
+      <%= link_to 'Edit', edit_ticket_path(@ticket), class: "btn btn-sm btn-blue" %>
+      <%= link_to 'Delete', ticket_path(@ticket), class: "btn btn-sm btn-red", method: 'delete', data: {confirm: "Are you sure?"}%>
     </li>
   </ul>
   <div class="card-footer">
