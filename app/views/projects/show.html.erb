@@ -1,20 +1,15 @@
 <%= render 'shared/content_title', title: @project.name %>
-<p class="lead text-center mb-5">
+<p class="mb-4">
   Description:
   <%= @project.description %>
 </p>
 
-<div class="card-columns">
-  <% @tickets.each do |ticket| %>
-    <div class="card bg-light mb-3">
-      <h5 class="card-header"><%= ticket.name %></h5>
-      <div class="card-body">
-        <p class="card-text"><%= ticket.body %></p>
-        <a href="#" class="btn btn-primary">Button</a>
-      </div>
-      <div class="card-footer">
-        <small class="text-muted">Last updated <%= ticket.updated_at%></small>
-      </div>
-    </div>
-  <% end %>
+<div class="mb-5">
+  <%= link_to "Create Ticket", new_ticket_path(project: @project.id), class: "btn green-btn" %>
+  <%= link_to "Edit Project", edit_project_path(@project), class: "btn blue-btn ml-2" %>
+  <%= link_to "Delete Project", project_path(@project), class: "btn red-btn ml-2", method: 'delete', data: {confirm: "Are you sure?"} %>
 </div>
+
+<h4 class="mb-4">Tickets</h4>
+
+<%= render 'tickets/ticket_list' %>

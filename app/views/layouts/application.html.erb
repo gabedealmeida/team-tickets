@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TicketApp</title>
+    <title>Team Tickets</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -10,6 +10,12 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= render 'layouts/navbar' %>
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <%= render 'layouts/messages' %>
+        <%= yield %>
+      </div>
+    </div>
   </body>
 </html>

@@ -1,7 +1,27 @@
-<ul>
+<%= render 'shared/content_title', title: 'Projects' %>
+
+<a href="<%= new_project_path %>" class="btn btn-md blue-btn mb-5">New Project</a>
+
+<div class="card-columns">
   <% @projects.each do |project| %>
-    <li>
-      <%= project.name %>
-    </li>
+    <div class="card bg-yellow-card mb-3">
+      <%= link_to project_path(project), class: "gray-text stretched-link" do %>
+        <h5 class="card-header"><%= project.name %></h5>
+      <% end %>
+      <div class="card-body bg-white">
+        <p class="card-text">Description: <%= format_card_text(project.description) %></p>
+        <div class="mb-3">
+          <span type="button" class="badge badge-pill bg-green card-text text-white">
+            Open Tickets <span class="badge badge-light"><%= project.open_tickets_count %></span>
+          </span>
+          <span type="button" class="badge badge-pill bg-heart card-text text-white">
+            Total Tickets <span class="badge badge-pill badge-light"><%= project.tickets.size %></span>
+          </span>
+        </div>
+      </div>
+      <div class="card-footer">
+        <small class="gray-text">Last updated <%= time_ago_in_words(project.most_recent_update)%> ago</small>
+      </div>
+    </div>
   <% end %>
-</ul>
+</div>
