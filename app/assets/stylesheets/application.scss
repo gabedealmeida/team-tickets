@@ -14,4 +14,95 @@
  *= require_self
  */
 
- @import "bootstrap/scss/bootstrap"
+ @import "bootstrap/scss/bootstrap";
+
+ .card-columns {
+  @include media-breakpoint-only(lg) {
+    column-count: 3;
+  }
+  @include media-breakpoint-only(xl) {
+    column-count: 4;
+  }
+}
+
+.blue-btn {
+  color: white;
+  background-color: #54b6ff;
+}
+
+.blue-btn:hover {
+  color: white;
+  background: #1c9fff !important;
+}
+
+.red-btn {
+  color: white;
+  background-color: #ff5a54;
+}
+
+.red-btn:hover {
+  color: white;
+  background: #ff241c;
+}
+
+.green-btn {
+  color: white;
+  background: #65c965;
+}
+
+.green-btn:hover {
+  color: white;
+  background: #34c234;
+}
+
+.bg-yellow-card {
+  background-color: #ffe982;
+}
+
+.bg-yellow-comment {
+  background-color: #fff6cc;
+}
+
+.bg-heart {
+  background-color: #ff8080;
+}
+
+.bg-green {
+  background-color: #65c965;
+}
+
+.bg-purple {
+  background-color: #bd80ff;
+}
+
+.bg-red {
+  background-color: #ff5a54;
+}
+
+.bg-blue {
+  background-color: #47d1d1;
+}
+
+.bg-orange {
+  background-color: #ffbb54;
+}
+
+.bg-lilac {
+  background-color: #808fff;
+}
+
+.bg-pink {
+  background-color: #ff80db;
+}
+
+.bg-yellow {
+  background-color: #f5d65b;
+}
+
+.gray-text {
+  color: rgba(0, 0, 0, 0.5);
+}
+
+a.gray-text:hover {
+  color: rgba(0, 0, 0, 0.5);
+}
