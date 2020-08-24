@@ -24,5 +24,8 @@ Give it a spin and let me know what you think 🙂🎉!
 ### Ticket Page
 ![Ticket Page](https://github.com/gabedealmeida/team-tickets/blob/master/public/images/ticket_page.png)
 
+### Comments Page
+![Comments Page](https://github.com/gabedealmeida/team-tickets/blob/master/public/images/comments_page.png)
+
 ### Tags Page
 ![Tags Page](https://github.com/gabedealmeida/team-tickets/blob/master/public/images/tags_page.png)
