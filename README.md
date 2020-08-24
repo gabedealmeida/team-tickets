@@ -1,24 +1,13 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Welcome to Team Tickets 📝!
 
-Things you may want to cover:
+A project manager with ticketing 🎟, tagging 🏷, commenting 💬, and status-changing 🟢🔴 ability.
 
-* Ruby version
+Team Tickets is built with Rails 6 and Bootstrap.
 
-* System dependencies
+The primary focus of this ticket manager is efficiency, simplicity, beauty, and most importantly to get the job done!
 
-* Configuration
+Give it a spin and let me know what you think 🙂🎉!
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[Team Tickets](https://calm-thicket-74827.herokuapp.com/)
