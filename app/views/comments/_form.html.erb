@@ -1,6 +1,6 @@
 <% edit ||= false %>
 
-<div class="<%= edit ? 'col-md-6 mx-auto' : 'mb-5 ml-5 mr-5'%>">
+<div class="<%= edit ? 'col-md-6 mx-auto' : 'mb-5 ml-2 mr-2'%>">
   <%= render 'shared/errors', obj: @comment %>
   <%= form_with local: true, model: [@ticket, @comment] do |f| %>
     <div class="form-group <%= edit ? '' : 'col-md-6' %>">

@@ -1,6 +1,6 @@
 <%= render 'shared/content_title', title: 'Ticket: ' + @ticket.name %>
 
-<div class="card bg-yellow-card mb-5 ml-5 mr-5">
+<div class="card bg-yellow-card mb-5 d-flex justify-content-center mr-2 ml-2">
   <ul class="list-group list-group-flush">
     <li class="list-group-item">
       <h6 class="card-title">Body</h6>
@@ -32,7 +32,7 @@
   </div>
 </div>
 
-<h4 class="mb-4 ml-5 mr-5">Comments:</h4>
+<h4 class="mb-4 ml-2 mr-2">Comments:</h4>
 
 <% if logged_in? %>
   <%= render 'comments/form' %>

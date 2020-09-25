@@ -2,22 +2,24 @@
 
 <a href="<%= new_tag_path %>" class="btn btn-md blue-btn mb-5">New Tag</a>
 
-<div class="card-columns">
-  <% @tags.each do |tag| %>
-    <% background = random_class_bg %>
-    <div class="card" style="width: 18rem;">
-      <div class="card-header <%= background %>">
-        <h5 class="card-title"><%= tag.name %></h5>
+<div class="d-flex justify-content-center">
+  <div class="card-columns">
+    <% @tags.each do |tag| %>
+      <% background = random_class_bg %>
+      <div class="card" style="width: 18rem;">
+        <div class="card-header <%= background %>">
+          <h5 class="card-title"><%= tag.name %></h5>
+        </div>
+        <div class="card-body">
+          <h6 class="card-subtitle mb-1">Tickets</h6>
+          <%= link_to tag.tickets.size, tickets_path(tag: tag.id) %>
+        </div>
+        <div class="card-footer <%= background %>">
+          <%= link_to 'Edit', edit_tag_path(tag), class: background.split[1] %>
+          <span> | </span>
+          <%= link_to 'Delete', tag_path(tag), class: background.split[1], method: 'delete', data: {confirm: "Are you sure?"} %>
+        </div>
       </div>
-      <div class="card-body">
-        <h6 class="card-subtitle mb-1">Tickets</h6>
-        <%= link_to tag.tickets.size, tickets_path(tag: tag.id) %>
-      </div>
-      <div class="card-footer <%= background %>">
-        <%= link_to 'Edit', edit_tag_path(tag), class: background.split[1] %>
-        <span> | </span>
-        <%= link_to 'Delete', tag_path(tag), class: background.split[1], method: 'delete', data: {confirm: "Are you sure?"} %>
-      </div>
-    </div>
-  <% end %>
+    <% end %>
+  </div>
 </div>
